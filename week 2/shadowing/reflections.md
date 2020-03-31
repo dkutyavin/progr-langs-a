@@ -1,0 +1,1 @@
+There is no way to assign variable to ML. Then we _set_ value to a variable, we just save it in the enviroment, but when we set new value to a variable, the new value `shadows` the old one, the old one is no more accessible.
