@@ -1,0 +1,2 @@
+- a function is a value
+- there is no way in SML to create a function with variable amount of variables
