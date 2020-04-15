@@ -23,3 +23,15 @@ fun number_in_months(dates: (int * int * int) list, months: int list) =
     if null months
     then 0
     else number_in_month(dates, hd months) + number_in_months(dates, tl months)
+
+fun dates_in_month(dates: (int * int * int) list, month: int) =
+    if null dates
+    then []
+    else let
+      val dates_in_tail = dates_in_month(tl dates, month)
+      val is_current_proper = #2 (hd dates) = month
+    in
+      if is_current_proper
+      then hd dates :: dates_in_tail
+      else dates_in_tail
+    end 
