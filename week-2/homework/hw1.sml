@@ -11,12 +11,12 @@ fun number_in_month(dates : (int * int * int) list, month: int) =
     if null dates
     then 0
     else let
-      val number_in_tail = number_in_month(tl dates, month)
-      val is_current_proper = #2 (hd dates) = month
+        val number_in_tail = number_in_month(tl dates, month)
+        val is_current_proper = #2 (hd dates) = month
     in
-      if is_current_proper
-      then 1 + number_in_tail
-      else number_in_tail
+        if is_current_proper
+        then 1 + number_in_tail
+        else number_in_tail
     end
 
 fun number_in_months(dates: (int * int * int) list, months: int list) =
@@ -28,12 +28,12 @@ fun dates_in_month(dates: (int * int * int) list, month: int) =
     if null dates
     then []
     else let
-      val dates_in_tail = dates_in_month(tl dates, month)
-      val is_current_proper = #2 (hd dates) = month
+        val dates_in_tail = dates_in_month(tl dates, month)
+        val is_current_proper = #2 (hd dates) = month
     in
-      if is_current_proper
-      then hd dates :: dates_in_tail
-      else dates_in_tail
+        if is_current_proper
+        then hd dates :: dates_in_tail
+        else dates_in_tail
     end 
 
 fun dates_in_months(dates: (int * int * int) list, months: int list) =
@@ -48,7 +48,7 @@ fun get_nth(strings: string list, n: int) =
 
 fun date_to_string(date: int * int * int) =
     let
-      val months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+        val months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
     in
         get_nth(months, #2 date) ^ " " ^ Int.toString(#3 date) ^ ", " ^ Int.toString(#1 date)
     end
