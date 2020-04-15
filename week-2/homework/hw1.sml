@@ -6,3 +6,15 @@ fun is_older(d1 : int * int * int, d2 : int * int * int) =
     else if #3 d2 < #3 d2
     then true
     else false
+
+fun number_in_month(dates : (int * int * int) list, month: int) =
+    if null dates
+    then 0
+    else let
+      val number_in_tail = number_in_month(tl dates, month)
+      val is_current_proper = #2 (hd dates) = month
+    in
+      if is_current_proper
+      then 1 + number_in_tail
+      else number_in_tail
+    end
