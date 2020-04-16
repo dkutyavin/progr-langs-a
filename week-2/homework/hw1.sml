@@ -62,4 +62,14 @@ fun number_before_reaching_sum(sum : int, numbers : int list) =
     in
         find_index(sum, numbers, 1)
     end
+
+fun what_month(day_of_year : int) =
+    let
+        val months = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+        val number = number_before_reaching_sum(day_of_year, months)
+    in
+        if day_of_year <= hd months
+        then number
+        else number + 1
+    end
     
