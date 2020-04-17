@@ -45,7 +45,11 @@ val test8_2 = number_before_reaching_sum (10, [9, 2, 3, 4, 5]) = 1
 val test8_3 = number_before_reaching_sum (20, [10, 5, 4, 1, 2]) = 3
 val test8_4 = number_before_reaching_sum (10, [1, 0, 0, 0, 0, 0, 9]) = 6
 
-val test9 = what_month 70 = 3
+val test9_1 = what_month 70 = 3
+val test9_2 = what_month 1 = 1
+val test9_3 = what_month 31 = 1
+val test9_4 = what_month 32 = 2
+val test9_5 = what_month 365 = 12
 
 val test10 = month_range (31, 34) = [1,2,2,2]
 
