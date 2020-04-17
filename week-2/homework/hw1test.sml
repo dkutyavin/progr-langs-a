@@ -44,6 +44,7 @@ val test8_1 = number_before_reaching_sum (10, [1,2,3,4,5]) = 3
 val test8_2 = number_before_reaching_sum (10, [9, 2, 3, 4, 5]) = 1
 val test8_3 = number_before_reaching_sum (20, [10, 5, 4, 1, 2]) = 3
 val test8_4 = number_before_reaching_sum (10, [1, 0, 0, 0, 0, 0, 9]) = 6
+val test8_5 = number_before_reaching_sum (1, [2]) = 0
 
 val test9_1 = what_month 70 = 3
 val test9_2 = what_month 1 = 1
