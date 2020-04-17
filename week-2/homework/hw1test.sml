@@ -4,7 +4,13 @@
 (* All the tests should evaluate to true. For example, the REPL should say: val test1 = true : bool *)
 
 
-val test1 = is_older ((1,2,3),(2,3,4)) = true
+val test1_1 = is_older ((1,2,3),(2,3,4)) = true
+val test1_2 = is_older ((2,3,4),(1,2,3)) = false
+val test1_3 = is_older ((~10, 1, 1), (1, 1, 1)) = true
+val test1_4 = is_older ((2000, 1, 1), (1999, 12, 31)) = false
+val test1_5 = is_older ((1999, 1, 1), (2000, 1, 1)) = true
+val test1_6 = is_older ((1999, 1, 1), (1999, 2, 1)) = true
+val test1_7 = is_older ((1999, 1, 1), (1999, 1, 2)) = true
 
 val test2 = number_in_month ([(2012,2,28),(2013,12,1)],2) = 1
 

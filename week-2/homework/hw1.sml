@@ -1,11 +1,9 @@
 fun is_older(d1 : int * int * int, d2 : int * int * int) =
-    if #1 d1 < #1 d2
-    then true
-    else if #2 d1 < #2 d2
-    then true
-    else if #3 d2 < #3 d2
-    then true
-    else false
+    if #1 d1 <> #1 d2
+    then #1 d1 < #1 d2
+    else if #2 d1 <> #2 d2
+    then #2 d1 < #2 d2
+    else #3 d1 < #3 d2
 
 fun number_in_month(dates : (int * int * int) list, month: int) =
     if null dates
@@ -81,14 +79,12 @@ fun month_range(day1 : int, day2 : int) =
 fun oldest(dates: (int * int * int) list) =
     if null dates
     then NONE
-    else 
-        let
+    else let
             fun oldest_nonempty (dates : (int * int * int) list) =
                 if null (tl dates)
                 then hd dates
                 else
-                    let
-                        val tl_ans = oldest_nonempty dates
+                    let val tl_ans = oldest_nonempty dates
                     in
                         if is_older(tl_ans, hd dates)
                         then tl_ans
