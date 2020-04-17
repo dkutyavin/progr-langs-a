@@ -40,7 +40,10 @@ val test7_2 = date_to_string (1994, 4, 15) = "April 15, 1994"
 val test7_3 = date_to_string (2000, 1, 1)  = "January 1, 2000"
 val test7_4 = date_to_string (2007, 12, 31) = "December 31, 2007"
 
-val test8 = number_before_reaching_sum (10, [1,2,3,4,5]) = 3
+val test8_1 = number_before_reaching_sum (10, [1,2,3,4,5]) = 3
+val test8_2 = number_before_reaching_sum (10, [9, 2, 3, 4, 5]) = 1
+val test8_3 = number_before_reaching_sum (20, [10, 5, 4, 1, 2]) = 3
+val test8_4 = number_before_reaching_sum (10, [1, 0, 0, 0, 0, 0, 9]) = 6
 
 val test9 = what_month 70 = 3
 
