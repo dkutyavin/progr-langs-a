@@ -31,7 +31,9 @@ val test5_3 = dates_in_months ([(2012,2,28),(2013,12,1)], []) = []
 val test5_4 = dates_in_months ([(2012, 1, 10), (2010, 1, 2), (2000, 5, 13), (1995, 5, 2), (1999, 2, 2)], [5, 1, 2]) = [(2000, 5, 13), (1995, 5, 2), (2012, 1, 10), (2010, 1, 2), (1999, 2, 2)]
 
 
-val test6 = get_nth (["hi", "there", "how", "are", "you"], 2) = "there"
+val test6_1 = get_nth (["hi", "there", "how", "are", "you"], 2) = "there"
+val test6_2 = get_nth (["hello", "world"], 1) = "hello"
+val test6_3 = get_nth (["how", "was", "your", "day", "?"], 5) = "?"
 
 val test7 = date_to_string (2013, 6, 1) = "June 1, 2013"
 
