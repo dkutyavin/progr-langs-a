@@ -84,11 +84,11 @@ fun oldest(dates: (int * int * int) list) =
                 if null (tl dates)
                 then hd dates
                 else
-                    let val tl_ans = oldest_nonempty dates
+                    let val tl_ans = oldest_nonempty (tl dates)
                     in
-                        if is_older(tl_ans, hd dates)
-                        then tl_ans
-                        else hd dates
+                        if is_older(hd dates, tl_ans)
+                        then hd dates
+                        else tl_ans
                     end
         in
             SOME (oldest_nonempty dates)
