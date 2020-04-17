@@ -12,7 +12,10 @@ val test1_5 = is_older ((1999, 1, 1), (2000, 1, 1)) = true
 val test1_6 = is_older ((1999, 1, 1), (1999, 2, 1)) = true
 val test1_7 = is_older ((1999, 1, 1), (1999, 1, 2)) = true
 
-val test2 = number_in_month ([(2012,2,28),(2013,12,1)],2) = 1
+val test2_1 = number_in_month ([(2012,2,28),(2013,12,1)],2) = 1
+val test2_2 = number_in_month ([(2012,2,28),(2013,12,1), (1999, 2, 1), (2020, 4, 17), (2010, 1, 4)],2) = 2
+val test2_3 = number_in_month ([(2019, 9, 9), (2019, 5, 4), (2019, 4, 4)], 1) = 0
+val test2_4 = number_in_month ([], 10) = 0
 
 val test3 = number_in_months ([(2012,2,28),(2013,12,1),(2011,3,31),(2011,4,28)],[2,3,4]) = 3
 
