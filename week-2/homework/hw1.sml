@@ -52,23 +52,15 @@ fun date_to_string(date: int * int * int) =
     end
 
 fun number_before_reaching_sum(sum : int, numbers : int list) =
-    let
-        fun find_index(sum : int, numbers : int list, index : int) = 
-            if hd (tl numbers) >= sum - hd numbers
-            then index
-            else find_index(sum - hd numbers, tl numbers, index + 1)
-    in
-        find_index(sum, numbers, 1)
-    end
+    if sum <= hd numbers
+    then 0
+    else 1 + number_before_reaching_sum(sum - hd numbers, tl numbers)
 
 fun what_month(day_of_year : int) =
     let
         val months = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
-        val number = number_before_reaching_sum(day_of_year, months)
     in
-        if day_of_year <= hd months
-        then number
-        else number + 1
+        number_before_reaching_sum(day_of_year, months) + 1
     end
 
 fun month_range(day1 : int, day2 : int) =
