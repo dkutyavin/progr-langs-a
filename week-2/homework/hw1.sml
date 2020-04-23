@@ -5,17 +5,11 @@ fun is_older(d1 : int * int * int, d2 : int * int * int) =
     then #2 d1 < #2 d2
     else #3 d1 < #3 d2
 
-fun number_in_month(dates : (int * int * int) list, month: int) =
-    if null dates
-    then 0
-    else let
-        val number_in_tail = number_in_month(tl dates, month)
-        val is_current_proper = #2 (hd dates) = month
-    in
-        if is_current_proper
-        then 1 + number_in_tail
-        else number_in_tail
-    end
+fun number_in_month (dates, month) =
+    case dates of
+        [] => 0
+        | (_, m, _)::tl => let val n_in_tail = number_in_month (tl, month)
+                           in if m = month then 1 + n_in_tail else n_in_tail end
 
 fun number_in_months(dates: (int * int * int) list, months: int list) =
     if null months
