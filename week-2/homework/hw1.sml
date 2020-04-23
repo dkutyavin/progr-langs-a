@@ -1,9 +1,9 @@
-fun is_older(d1 : int * int * int, d2 : int * int * int) =
-    if #1 d1 <> #1 d2
-    then #1 d1 < #1 d2
-    else if #2 d1 <> #2 d2
-    then #2 d1 < #2 d2
-    else #3 d1 < #3 d2
+fun is_older((y1, m1, d1), (y2, m2, d2)) =
+    if y1 <> y2
+    then y1 < y2
+    else if m1 <> m2
+    then m1 < m2
+    else d1 < d2
 
 fun number_in_month (dates, month) =
     case dates of
