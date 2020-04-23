@@ -12,9 +12,9 @@ fun number_in_month (dates, month) =
                            in if m = month then 1 + n_in_tail else n_in_tail end
 
 fun number_in_months(dates: (int * int * int) list, months: int list) =
-    if null months
-    then 0
-    else number_in_month(dates, hd months) + number_in_months(dates, tl months)
+    case months of
+        [] => 0
+        | hd::tl => number_in_month(dates, hd) + number_in_months(dates, tl)
 
 fun dates_in_month(dates: (int * int * int) list, month: int) =
     if null dates
