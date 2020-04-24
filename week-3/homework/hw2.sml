@@ -11,16 +11,16 @@ fun all_except_option (to_remove : string, strings) =
     let fun all_except (to_remove : string, strings) =
         case strings of
             [] => []
-          | hd::tl => if same_string(to_remove, hd) then tl else hd::all_except(to_remove, tl)
+          | hd::tl => if same_string (to_remove, hd) then tl else hd::all_except(to_remove, tl)
         val result = all_except (to_remove, strings)
     in if result = strings then NONE else SOME result end
 
-fun get_substitutions1 (substitutions: (string list) list, s: string) =
+fun get_substitutions1 (substitutions : (string list) list, s : string) =
     case substitutions of
         [] => []
         | hd::tl => case all_except_option (s, hd) of
-            NONE => get_substitutions1(tl, s)
-            | SOME ss => ss @ get_substitutions1(tl, s)
+            NONE => get_substitutions1 (tl, s)
+            | SOME ss => ss @ get_substitutions1 (tl, s)
 
 (* you may assume that Num is always used with values 2, 3, ..., 10
    though it will not really come up *)
