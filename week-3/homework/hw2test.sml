@@ -8,9 +8,14 @@ val test1_2 = all_except_option ("string", []) = NONE
 val test1_3 = all_except_option ("this one", ["not this", "and not this", "and", "not", "this", "but", "this one"]) = SOME ["not this", "and not this", "and", "not", "this", "but"]
 val test1_4 = all_except_option ("empty", ["there", "is", "no", "such", "string"]) = NONE
 
-val test2 = get_substitutions1 ([["foo"],["there"]], "foo") = []
+val test2_1 = get_substitutions1 ([["foo"],["there"]], "foo") = []
+val test2_2 = get_substitutions1 ([["Fred", "Fredrick"], ["Elizabeth", "Bethy"], ["Freddie", "Fred", "F"]], "Fred") = ["Fredrick", "Freddie", "F"]
+val test2_3 = get_substitutions1 ([["Fred", "Fredrick"], ["Elizabeth", "Bethy"], ["Freddie", "Fred", "F"]], "Elizabeth") = ["Bethy"]
+val test2_4 = get_substitutions1 ([["Fred", "Fredrick"], ["Elizabeth", "Bethy"], ["Freddie", "Fred", "F"]], "Robert") = []
+val test2_5 = get_substitutions1 ([["Fred"," Fredrick"], ["Jeff", "Jeffrey"], ["Geoff", "Jeff", "Jeffrey"]], "Jeff") = ["Jeffrey", "Geoff", "Jeffrey"]
 
-val test3 = get_substitutions2 ([["foo"],["there"]], "foo") = []
+
+(* val test3 = get_substitutions2 ([["foo"],["there"]], "foo") = []
 
 val test4 = similar_names ([["Fred","Fredrick"],["Elizabeth","Betty"],["Freddie","Fred","F"]], {first="Fred", middle="W", last="Smith"}) =
 	    [{first="Fred", last="Smith", middle="W"}, {first="Fredrick", last="Smith", middle="W"},
@@ -39,6 +44,6 @@ val test13 = ((officiate([(Clubs,Jack),(Spades,Num(8))],
                          [Draw,Discard(Hearts,Jack)],
                          42);
                false) 
-              handle IllegalMove => true)
+              handle IllegalMove => true) *)
              
              
