@@ -104,7 +104,9 @@ fun officiate (cards, moves, goal) =
                 [] => score (held_cards, goal)
                 | move::tl_moves => case move of
                     Discard card => next_state (cards, tl_moves, remove_card (held_cards, card, IllegalMove))
-                    | Draw => case cards of
+                    | Draw => (case cards of
                         [] => score (held_cards, goal)
-                        | card::tl_cards => next_state (tl_cards, tl_moves, card::held_cards)
+                        | card::tl_cards => if sum_cards (card::held_cards) > goal
+                            then score (card::held_cards, goal)
+                            else next_state (tl_cards, tl_moves, card::held_cards))
     in next_state (cards, moves, []) end
