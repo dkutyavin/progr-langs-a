@@ -79,3 +79,10 @@ fun all_same_color cards =
         | card1::card2::tl => if card_color card1 = card_color card2
                               then all_same_color (card2::tl)
                               else false
+
+fun sum_cards cards =
+    let fun aux (cards, acc) =
+        case cards of
+            [] => acc
+            | hd::tl => aux(tl, card_value hd + acc)
+    in aux(cards, 0) end

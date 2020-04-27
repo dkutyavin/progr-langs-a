@@ -51,9 +51,11 @@ val test8_3 = all_same_color [] = true
 val test8_4 = all_same_color [(Diamonds, Num 10), (Hearts, Queen), (Diamonds, King), (Diamonds, Ace), (Hearts, Jack)] = true
 val test8_5 = all_same_color [(Diamonds, Num 10), (Hearts, Queen), (Diamonds, King), (Clubs, Ace), (Hearts, Jack)] = false
 
-(*val test9 = sum_cards [(Clubs, Num 2),(Clubs, Num 2)] = 4
+val test9_1 = sum_cards [(Clubs, Num 2),(Clubs, Num 2)] = 4
+val test9_2 = sum_cards [(Hearts, Ace)] = 11
+val test9_3 = sum_cards [(Spades, Num 10), (Hearts, Num 9), (Diamonds, Ace), (Clubs, King)] = 40
 
-val test10 = score ([(Hearts, Num 2),(Clubs, Num 4)],10) = 4
+(*val test10 = score ([(Hearts, Num 2),(Clubs, Num 4)],10) = 4
 
 val test11 = officiate ([(Hearts, Num 2),(Clubs, Num 4)],[Draw], 15) = 6
 
