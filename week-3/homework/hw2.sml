@@ -22,6 +22,17 @@ fun get_substitutions1 (substitutions, s) =
             NONE => get_substitutions1 (tl, s)
             | SOME ss => ss @ get_substitutions1 (tl, s)
 
+fun similar_names (first_names_subs, {first, last, middle}) =
+    let
+        val first_names = get_substitutions1(first_names_subs, first)
+        fun form_full_names first_names = 
+            case first_names of 
+            [] => []
+            | first_name::tl => {first = first_name, last = last, middle = middle} :: form_full_names tl
+    in
+        {first = first, last = last, middle = middle}::form_full_names first_names
+    end
+
 (* TODO get_substitutions2  *)
 
 (* you may assume that Num is always used with values 2, 3, ..., 10
