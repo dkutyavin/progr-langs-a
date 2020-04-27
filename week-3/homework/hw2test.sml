@@ -14,11 +14,11 @@ val test2_3 = get_substitutions1 ([["Fred", "Fredrick"], ["Elizabeth", "Bethy"],
 val test2_4 = get_substitutions1 ([["Fred", "Fredrick"], ["Elizabeth", "Bethy"], ["Freddie", "Fred", "F"]], "Robert") = []
 val test2_5 = get_substitutions1 ([["Fred"," Fredrick"], ["Jeff", "Jeffrey"], ["Geoff", "Jeff", "Jeffrey"]], "Jeff") = ["Jeffrey", "Geoff", "Jeffrey"]
 
-(* val test3_1 = get_substitutions2 ([["foo"],["there"]], "foo") = []
+val test3_1 = get_substitutions2 ([["foo"],["there"]], "foo") = []
 val test3_2 = get_substitutions2 ([["Fred", "Fredrick"], ["Elizabeth", "Bethy"], ["Freddie", "Fred", "F"]], "Fred") = ["Fredrick", "Freddie", "F"]
 val test3_3 = get_substitutions2 ([["Fred", "Fredrick"], ["Elizabeth", "Bethy"], ["Freddie", "Fred", "F"]], "Elizabeth") = ["Bethy"]
 val test3_4 = get_substitutions2 ([["Fred", "Fredrick"], ["Elizabeth", "Bethy"], ["Freddie", "Fred", "F"]], "Robert") = []
-val test3_5 = get_substitutions2 ([["Fred"," Fredrick"], ["Jeff", "Jeffrey"], ["Geoff", "Jeff", "Jeffrey"]], "Jeff") = ["Jeffrey", "Geoff", "Jeffrey"] *)
+val test3_5 = get_substitutions2 ([["Fred"," Fredrick"], ["Jeff", "Jeffrey"], ["Geoff", "Jeff", "Jeffrey"]], "Jeff") = ["Jeffrey", "Geoff", "Jeffrey"]
 
 
 val test4_1 = similar_names ([["Fred","Fredrick"],["Elizabeth","Betty"],["Freddie","Fred","F"]], {first="Fred", middle="W", last="Smith"}) =

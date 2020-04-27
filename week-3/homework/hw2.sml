@@ -22,9 +22,19 @@ fun get_substitutions1 (substitutions, s) =
             NONE => get_substitutions1 (tl, s)
             | SOME ss => ss @ get_substitutions1 (tl, s)
 
+fun get_substitutions2 (substitutions, s) =
+    let fun aux (subs, acc) =
+            case subs of
+                [] => acc
+                | hd::tl => case all_except_option (s, hd) of
+                    NONE => aux(tl, acc)
+                    | SOME ss => aux(tl, acc @ ss)
+    in aux(substitutions, [])
+    end
+
 fun similar_names (first_names_subs, {first, last, middle}) =
     let
-        val first_names = get_substitutions1(first_names_subs, first)
+        val first_names = get_substitutions2(first_names_subs, first)
         fun form_full_names first_names = 
             case first_names of 
             [] => []
@@ -32,8 +42,6 @@ fun similar_names (first_names_subs, {first, last, middle}) =
     in
         {first = first, last = last, middle = middle}::form_full_names first_names
     end
-
-(* TODO get_substitutions2  *)
 
 (* you may assume that Num is always used with values 2, 3, ..., 10
    though it will not really come up *)
