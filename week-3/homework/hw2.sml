@@ -66,4 +66,9 @@ fun card_value (suit, rank) =
         Ace => 11
         | Num n => n
         | _ => 10
+
+fun remove_card (cards, card : card, e) = 
+    case cards of
+        [] => raise e
+        | h_card::tl => if h_card = card then tl else h_card::remove_card(tl, card, e)
     
