@@ -96,3 +96,15 @@ fun score (cards, goal) =
         then preliminary_score div 2
         else preliminary_score 
     end
+
+fun officiate (cards, moves, goal) = 
+    let
+        fun next_state (cards, moves, held_cards) =
+            case moves of
+                [] => score (held_cards, goal)
+                | move::tl_moves => case move of
+                    Discard card => next_state (cards, tl_moves, remove_card (held_cards, card, IllegalMove))
+                    | Draw => case cards of
+                        [] => score (held_cards, goal)
+                        | card::tl_cards => next_state (tl_cards, tl_moves, card::held_cards)
+    in next_state (cards, moves, []) end
