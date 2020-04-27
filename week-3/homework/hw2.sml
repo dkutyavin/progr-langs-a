@@ -86,3 +86,13 @@ fun sum_cards cards =
             [] => acc
             | hd::tl => aux(tl, card_value hd + acc)
     in aux(cards, 0) end
+
+fun score (cards, goal) =
+    let 
+        val sum = sum_cards cards
+        val preliminary_score = if sum > goal then 3 * (sum - goal) else (goal - sum)
+    in 
+        if all_same_color cards 
+        then preliminary_score div 2
+        else preliminary_score 
+    end
