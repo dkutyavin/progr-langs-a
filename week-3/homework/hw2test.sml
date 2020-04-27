@@ -27,9 +27,12 @@ val test4_1 = similar_names ([["Fred","Fredrick"],["Elizabeth","Betty"],["Freddi
 
 val test4_2 = similar_names ([], {first="Fred", middle="W", last="Smith"}) = [{first="Fred", middle="W", last="Smith"}]
 
-(*val test5 = card_color (Clubs, Num 2) = Black
+val test5_1 = card_color (Clubs, Num 2) = Black
+val test5_2 = card_color (Diamonds, Jack) = Red
+val test5_3 = card_color (Hearts, Queen) = Red
+val test5_4 = card_color (Spades, Ace) = Black
 
-val test6 = card_value (Clubs, Num 2) = 2
+(*val test6 = card_value (Clubs, Num 2) = 2
 
 val test7 = remove_card ([(Hearts, Ace)], (Hearts, Ace), IllegalMove) = []
 
