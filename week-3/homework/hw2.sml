@@ -72,3 +72,10 @@ fun remove_card (cards, card : card, e) =
         [] => raise e
         | h_card::tl => if h_card = card then tl else h_card::remove_card(tl, card, e)
     
+fun all_same_color cards =
+    case cards of
+        [] => true
+        | _::[] => true
+        | card1::card2::tl => if card_color card1 = card_color card2
+                              then all_same_color (card2::tl)
+                              else false
