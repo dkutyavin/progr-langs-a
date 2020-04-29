@@ -36,9 +36,11 @@ val test5_4 = longest_capitalized ["this", "is", "my", "strings", ".", "Which", 
 val test5_5 = longest_capitalized ["this", "is", "my", "strings", ".", "which", "is", "longest", "one", "?"] = ""
 
 
-(*val test6 = rev_string "abc" = "cba"
+val test6_1 = rev_string "abc" = "cba"
+val test6_2 = rev_string "" = ""
+val test6_3 = rev_string "Hello, friends!" = "!sdneirf ,olleH"
 
-val test7 = first_answer (fn x => if x > 3 then SOME x else NONE) [1,2,3,4,5] = 4
+(*val test7 = first_answer (fn x => if x > 3 then SOME x else NONE) [1,2,3,4,5] = 4
 
 val test8 = all_answers (fn x => if x = 1 then SOME [x] else NONE) [2,3,4,5,6,7] = NONE
 
