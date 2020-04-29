@@ -64,3 +64,13 @@ fun first_answer f xs = case xs of
         | hd::tl => case f hd of
                         SOME x => x
                         | NONE => first_answer f tl
+
+fun all_answers f xs = 
+    let fun aux xs acc =
+        case xs of
+            [] => acc
+            | hd::tl => (case f hd of
+                SOME l => aux tl (acc @ l)
+                | NONE => [])
+        val result = aux xs []
+    in if result = [] then NONE else SOME result end

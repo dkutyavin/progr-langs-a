@@ -45,9 +45,10 @@ val test7_2 = first_answer (fn x => if x < 3 then SOME x else NONE) [1,2,3,4,5] 
 val test7_3 = first_answer (fn x => if Char.isUpper (String.sub (x, 0)) then SOME x else NONE) ["a", "b", "C", "d"] = "C"
 val test7_4 = ((first_answer (fn x => SOME x) []) handle NoAnswer => true) 
 
-(*val test8 = all_answers (fn x => if x = 1 then SOME [x] else NONE) [2,3,4,5,6,7] = NONE
+val test8_1 = all_answers (fn x => if x = 1 then SOME [x] else NONE) [2,3,4,5,6,7] = NONE
+val test8_2 = all_answers (fn x => if x > 1 then SOME [x] else NONE) [2,3,4,5,6,7] = SOME [2,3,4,5,6,7]
 
-val test9a = count_wildcards Wildcard = 1
+(*val test9a = count_wildcards Wildcard = 1
 
 val test9b = count_wild_and_variable_lengths (Variable("a")) = 1
 
