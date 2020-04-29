@@ -3,9 +3,13 @@
 (* To run the test, add a new line to the top of this file: use "homeworkname.sml"; *)
 (* All the tests should evaluate to true. For example, the REPL should say: val test1 = true : bool *)
 
-val test1 = only_capitals ["A","B","C"] = ["A","B","C"]
+val test1_1 = only_capitals ["A","B","C"] = ["A","B","C"]
+val test1_2 = only_capitals ["a", "b", "c"] = []
+val test1_3 = only_capitals ["A", "b", "C"] = ["A", "C"]
+val test1_4 = only_capitals ["Upper", "Case", "And", "This one", "but not this", "one"] = ["Upper", "Case", "And", "This one"]
 
-val test2 = longest_string1 ["A","bc","C"] = "bc"
+
+(* val test2 = longest_string1 ["A","bc","C"] = "bc"
 
 val test3 = longest_string2 ["A","bc","C"] = "bc"
 
@@ -31,4 +35,4 @@ val test10 = check_pat (Variable("x")) = true
 
 val test11 = match (Const(1), UnitP) = NONE
 
-val test12 = first_match Unit [UnitP] = SOME []
+val test12 = first_match Unit [UnitP] = SOME [] *)

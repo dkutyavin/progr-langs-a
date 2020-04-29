@@ -35,3 +35,4 @@ datatype typ = Anything
 	     | Datatype of string
 
 (**** you can put all your code here ****)
+val only_capitals = List.filter (fn s => Char.isUpper (String.sub (s, 0)))
