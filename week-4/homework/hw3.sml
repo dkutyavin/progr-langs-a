@@ -36,3 +36,8 @@ datatype typ = Anything
 
 (**** you can put all your code here ****)
 val only_capitals = List.filter (fn s => Char.isUpper (String.sub (s, 0)))
+
+val longest_string1 = foldl (fn (s, acc) => if String.size s > String.size acc 
+                                            then s
+                                            else acc)
+                      ""
