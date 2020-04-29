@@ -14,9 +14,12 @@ val test2_2 = longest_string1 [] = ""
 val test2_3 = longest_string1 ["A", "BC", "CD", "E"] = "BC"
 val test2_4 = longest_string1 ["this", "is", "my", "strings", ".", "Which", "is", "longest", "one", "?"] = "strings"
 
-(*val test3 = longest_string2 ["A","bc","C"] = "bc"
+val test3_1 = longest_string2 ["A","bc","C"] = "bc"
+val test3_2 = longest_string2 [] = ""
+val test3_3 = longest_string2 ["A", "BC", "CD", "E"] = "CD"
+val test3_4 = longest_string2 ["this", "is", "my", "strings", ".", "Which", "is", "longest", "one", "?"] = "longest"
 
-val test4a = longest_string3 ["A","bc","C"] = "bc"
+(*val test4a = longest_string3 ["A","bc","C"] = "bc"
 
 val test4b = longest_string4 ["A","B","C"] = "C"
 

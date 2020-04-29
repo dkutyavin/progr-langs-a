@@ -41,3 +41,8 @@ val longest_string1 = foldl (fn (s, acc) => if String.size s > String.size acc
                                             then s
                                             else acc)
                       ""
+
+val longest_string2 = foldl (fn (s, acc) => if String.size s >= String.size acc 
+                                            then s
+                                            else acc)
+                      ""
