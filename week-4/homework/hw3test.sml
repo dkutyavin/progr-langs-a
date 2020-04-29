@@ -29,9 +29,14 @@ val test4b_2 = longest_string4 [] = ""
 val test4b_3 = longest_string4 ["A", "BC", "CD", "E"] = "CD"
 val test4b_4 = longest_string4 ["this", "is", "my", "strings", ".", "Which", "is", "longest", "one", "?"] = "longest"
 
-(*val test5 = longest_capitalized ["A","bc","C"] = "A"
+val test5_1 = longest_capitalized ["A","bc","C"] = "A"
+val test5_2 = longest_capitalized ["Upper", "Case", "And", "This one", "but not this", "one"] = "This one"
+val test5_3 = longest_capitalized [] = ""
+val test5_4 = longest_capitalized ["this", "is", "my", "strings", ".", "Which", "is", "longest", "one", "?"] = "Which"
+val test5_5 = longest_capitalized ["this", "is", "my", "strings", ".", "which", "is", "longest", "one", "?"] = ""
 
-val test6 = rev_string "abc" = "cba"
+
+(*val test6 = rev_string "abc" = "cba"
 
 val test7 = first_answer (fn x => if x > 3 then SOME x else NONE) [1,2,3,4,5] = 4
 
