@@ -62,9 +62,13 @@ val test9a_6 = count_wildcards constructor_p1 = 2
 val test9a_7 = count_wildcards (ConstructorP ("Good afternoon", ConstP 42)) = 0
 val test9a_8 = count_wildcards constructor_p2 = 0
 
-(*val test9b = count_wild_and_variable_lengths (Variable("a")) = 1
+val test9b_1 = count_wild_and_variable_lengths (Variable("a")) = 1
+val test9b_2 = count_wild_and_variable_lengths tuple_p2 = 5
+val test9b_3 = count_wild_and_variable_lengths constructor_p2 = 5
+val test9b_4 = count_wild_and_variable_lengths tuple_p1 = 2
+val test9b_5 = count_wild_and_variable_lengths (ConstructorP ("sss", TupleP [tuple_p1, constructor_p2])) = 7
 
-val test9c = count_some_var ("x", Variable("x")) = 1
+(*val test9c = count_some_var ("x", Variable("x")) = 1
 
 val test10 = check_pat (Variable("x")) = true
 
