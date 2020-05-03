@@ -78,3 +78,5 @@ fun all_answers f xs =
 val count_wildcards = g (fn _ => 1) (fn _ => 0)
 
 val count_wild_and_variable_lengths = g (fn _ => 1) (fn s => String.size s)
+
+fun count_some_var (x, p) = g (fn _ => 0) (fn s => if s = x then 1 else 0) p
