@@ -48,9 +48,21 @@ val test7_4 = ((first_answer (fn x => SOME x) []) handle NoAnswer => true)
 val test8_1 = all_answers (fn x => if x = 1 then SOME [x] else NONE) [2,3,4,5,6,7] = NONE
 val test8_2 = all_answers (fn x => if x > 1 then SOME [x] else NONE) [2,3,4,5,6,7] = SOME [2,3,4,5,6,7]
 
-(*val test9a = count_wildcards Wildcard = 1
+val tuple_p1 = TupleP [Wildcard, UnitP, ConstP 10, TupleP [Wildcard]]
+val tuple_p2 = TupleP [UnitP, ConstP 42, Variable("hello")]
+val constructor_p1 = ConstructorP ("hi", tuple_p1)
+val constructor_p2 = ConstructorP ("Good morning", tuple_p2)
 
-val test9b = count_wild_and_variable_lengths (Variable("a")) = 1
+val test9a_1 = count_wildcards Wildcard = 1
+val test9a_2 = count_wildcards UnitP = 0
+val test9a_3 = count_wildcards (ConstP 10) = 0
+val test9a_4 = count_wildcards tuple_p1 = 2
+val test9a_5 = count_wildcards (TupleP [UnitP]) = 0
+val test9a_6 = count_wildcards constructor_p1 = 2
+val test9a_7 = count_wildcards (ConstructorP ("Good afternoon", ConstP 42)) = 0
+val test9a_8 = count_wildcards constructor_p2 = 0
+
+(*val test9b = count_wild_and_variable_lengths (Variable("a")) = 1
 
 val test9c = count_some_var ("x", Variable("x")) = 1
 

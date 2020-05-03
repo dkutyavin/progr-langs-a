@@ -74,3 +74,5 @@ fun all_answers f xs =
                 | NONE => [])
         val result = aux xs []
     in if result = [] then NONE else SOME result end
+
+val count_wildcards = g (fn _ => 1) (fn _ => 0)
