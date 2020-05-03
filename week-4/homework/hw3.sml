@@ -80,3 +80,21 @@ val count_wildcards = g (fn _ => 1) (fn _ => 0)
 val count_wild_and_variable_lengths = g (fn _ => 1) (fn s => String.size s)
 
 fun count_some_var (x, p) = g (fn _ => 0) (fn s => if s = x then 1 else 0) p
+
+fun check_pat p =
+    let 
+        fun get_variables p = 
+            case p of
+                Variable x =>[x]
+                | TupleP ps => List.foldl (fn (p, acc) => acc @ get_variables p) [] ps
+                | ConstructorP (_, p) => get_variables p
+                | _ => []
+        fun is_distinct ss =
+            case ss of
+                [] => true
+                | hd::tl => if List.exists (fn x => x = hd) tl
+                            then false
+                            else is_distinct tl
+    in 
+        is_distinct (get_variables p)
+    end

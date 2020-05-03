@@ -74,8 +74,12 @@ val test9c_3 = count_some_var ("hi", constructor_p1) = 0
 val test9c_4 = count_some_var ("hello", tuple_p2) = 1
 val test9c_5 = count_some_var ("hello", ConstructorP ("hello", TupleP [constructor_p2, Variable "hello"])) = 2
 
-(*val test10 = check_pat (Variable("x")) = true
+val test10_1 = check_pat (Variable("x")) = true
+val test10_2 = check_pat constructor_p1 = true
+val test10_3 = check_pat (TupleP [constructor_p2]) = true
+val test10_4 = check_pat (TupleP [constructor_p2, Variable "hello"]) = false
+val test10_5 = check_pat (TupleP [Variable "x", Variable "y", Variable "z", Variable "x", Variable "1"]) = false
 
-val test11 = match (Const(1), UnitP) = NONE
+(*val test11 = match (Const(1), UnitP) = NONE
 
 val test12 = first_match Unit [UnitP] = SOME [] *)
