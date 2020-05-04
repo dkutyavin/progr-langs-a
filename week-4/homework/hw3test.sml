@@ -80,6 +80,20 @@ val test10_3 = check_pat (TupleP [constructor_p2]) = true
 val test10_4 = check_pat (TupleP [constructor_p2, Variable "hello"]) = false
 val test10_5 = check_pat (TupleP [Variable "x", Variable "y", Variable "z", Variable "x", Variable "1"]) = false
 
-(*val test11 = match (Const(1), UnitP) = NONE
+val test11_1 = match (Unit, UnitP) = SOME []
+val test11_2 = match (Const 1, UnitP) = NONE
+val test11_3 = match (Const 1, Wildcard) = SOME []
+val test11_4 = match (Const 1, Variable "x") = SOME [("x", Const 1)]
+val test11_5 = match (Unit, Variable "y") = SOME [("y", Unit)]
+val test11_6 = match (Const 17, ConstP 17) = SOME []
+val test11_7 = match (Const 1, ConstP 17) = NONE
+val test11_8 = match (Tuple [Const 17, Unit, Unit, Const 5], TupleP [ConstP 17, Wildcard, UnitP, Variable "z"]) = SOME [("z", Const 5)]
+val test11_9 = match (Tuple [], TupleP [UnitP]) = NONE
+val test11_10 = match (Tuple [Const 1, Const 2, Const 3, Const 4], TupleP [ConstP 1, ConstP 2, ConstP 3, ConstP 5]) = NONE
+val test11_11 = match (Constructor ("s", Const 10), ConstructorP ("s", ConstP 10)) = SOME []
+val test11_12 = match (Constructor ("a", Const 10), ConstructorP ("b", ConstP 19)) = NONE
+val test11_13 = match (Constructor ("a", Const 10), ConstructorP ("a", ConstP 11)) = NONE
+val test11_14 = match (Constructor ("tuples", Tuple [Const 1, Const 2, Const 3, Unit]), ConstructorP ("tuples", TupleP [Variable "s1", ConstP 2, Wildcard, Variable "s2"])) = SOME [("s1", Const 1), ("s2", Unit)]
 
-val test12 = first_match Unit [UnitP] = SOME [] *)
+
+(* val test12 = first_match Unit [UnitP] = SOME [] *)

@@ -98,3 +98,13 @@ fun check_pat p =
     in 
         is_distinct (get_variables p)
     end
+
+fun match (v, p) =
+    case (v, p) of
+        (_, Wildcard) => SOME []
+        | (v, Variable s) => SOME [(s, v)]
+        | (Unit, UnitP) => SOME []
+        | (Const x, ConstP y) => if x = y then SOME [] else NONE
+        | (Tuple vs, TupleP ps) => all_answers (fn (v, p) => match (v, p)) (ListPair.zip (vs, ps))
+        | (Constructor (s1, v), ConstructorP (s2, p)) => if s1 = s2 then match (v, p) else NONE
+        | _ => NONE
