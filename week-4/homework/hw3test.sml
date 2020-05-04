@@ -96,4 +96,6 @@ val test11_13 = match (Constructor ("a", Const 10), ConstructorP ("a", ConstP 11
 val test11_14 = match (Constructor ("tuples", Tuple [Const 1, Const 2, Const 3, Unit]), ConstructorP ("tuples", TupleP [Variable "s1", ConstP 2, Wildcard, Variable "s2"])) = SOME [("s1", Const 1), ("s2", Unit)]
 
 
-(* val test12 = first_match Unit [UnitP] = SOME [] *)
+val test12_1 = first_match Unit [ConstP 10, UnitP] = SOME []
+val test12_2 = first_match Unit [ConstP 10, TupleP [ConstP 0]] = NONE
+val test12_3 = first_match (Const 17) [TupleP [Wildcard], Variable "aaa"] = SOME [("aaa", Const 17)]

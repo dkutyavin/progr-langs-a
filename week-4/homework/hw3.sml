@@ -108,3 +108,7 @@ fun match (v, p) =
         | (Tuple vs, TupleP ps) => all_answers (fn (v, p) => match (v, p)) (ListPair.zip (vs, ps))
         | (Constructor (s1, v), ConstructorP (s2, p)) => if s1 = s2 then match (v, p) else NONE
         | _ => NONE
+
+fun first_match v ps =
+   SOME (first_answer (fn p => match (v, p)) ps)
+   handle NoAnswer => NONE
