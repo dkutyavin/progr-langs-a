@@ -68,12 +68,11 @@ fun first_answer f xs = case xs of
 fun all_answers f xs = 
     let fun aux xs acc =
         case xs of
-            [] => acc
+            [] => SOME acc
             | hd::tl => (case f hd of
                 SOME l => aux tl (acc @ l)
-                | NONE => [])
-        val result = aux xs []
-    in if result = [] then NONE else SOME result end
+                | NONE => NONE)
+    in aux xs [] end
 
 val count_wildcards = g (fn _ => 1) (fn _ => 0)
 
@@ -105,8 +104,12 @@ fun match (v, p) =
         | (v, Variable s) => SOME [(s, v)]
         | (Unit, UnitP) => SOME []
         | (Const x, ConstP y) => if x = y then SOME [] else NONE
-        | (Tuple vs, TupleP ps) => all_answers (fn (v, p) => match (v, p)) (ListPair.zip (vs, ps))
-        | (Constructor (s1, v), ConstructorP (s2, p)) => if s1 = s2 then match (v, p) else NONE
+        | (Tuple vs, TupleP ps) => if length vs = length ps
+                                   then all_answers (fn (v, p) => match (v, p)) (ListPair.zip (vs, ps))
+                                   else NONE
+        | (Constructor (s1, v), ConstructorP (s2, p)) => if s1 = s2 
+                                                         then match (v, p) 
+                                                         else NONE
         | _ => NONE
 
 fun first_match v ps =
