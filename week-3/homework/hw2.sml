@@ -8,11 +8,11 @@ fun same_string(s1 : string, s2 : string) =
 
 (* put your solutions for problem 1 here *)
 fun all_except_option (to_remove, strings) = 
-    let fun all_except (to_remove, strings) =
+    let fun all_except strings =
         case strings of
             [] => []
-          | hd::tl => if same_string (to_remove, hd) then tl else hd::all_except(to_remove, tl)
-        val result = all_except (to_remove, strings)
+          | hd::tl => if same_string (to_remove, hd) then tl else hd::all_except(tl)
+        val result = all_except (strings)
     in if result = strings then NONE else SOME result end
 
 fun get_substitutions1 (substitutions, s) =
